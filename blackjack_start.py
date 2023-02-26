@@ -42,7 +42,6 @@ def blackjackgame():
     print(f"This is your card {user_card}")
     print(f"This is one of the computer's cards {rn.choice(computer)}") 
 
-    
     def compare():
         '''This function checks if the user has lost, won or drew with the computer'''
         user_score = calculate(user_card)
