@@ -23,7 +23,7 @@ def number_game():
             return True  # placeholder for when the guess actually becomes true aka equal to the computer's choice
         elif computers_choice > your_choice:
             print(f"Too low")
-            return False  #placeholder for when the guess is false, not necessary
+            return False  # placeholder for when the guess is false, not necessary
         else:
             print(f'Too high')
             return False  
