@@ -13,13 +13,14 @@ def clear():
 
 
 def switch_values():
-    # use a temporary variable to hold the value of B
+    ''' use a temporary variable to hold the value of B'''
     global A, B
     A, B = B, rn.choice(data)
     return B
 
 
 def higherlower():
+    '''The function for the higher lower game'''
     print(logo1)
     global A
     global B
@@ -28,6 +29,7 @@ def higherlower():
     print(f"Compare B: {B['name']}, a {B['description']}, from {B['country']}")
 
     def compare(A, B):
+        '''Comparing the size of followers on IG'''
         score_check = 0
         while True:
             score_check += 1
