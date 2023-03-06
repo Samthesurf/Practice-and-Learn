@@ -32,6 +32,7 @@ resources = {
 }
 
 def update_resources(coffee_type):
+    '''This function updates the resources when each coffee is ordered'''
     global resources
     for ingredient, amount in coffee_type['ingredients'].items():
         resources[ingredient] -= amount
@@ -41,6 +42,7 @@ def update_resources(coffee_type):
         return resources
 
 def user_choice(coffee):
+    '''This function allows the user to pay for the coffee and gives change accordingly'''
     global resources
     print('please insert coins')
     coins = {
@@ -80,7 +82,7 @@ while True:
         user_choice(latte['cost'])
     elif coffee_choice == 'report':
         print(resources)
-    else:
+    elif coffee_choice == 'off':
         break
 
         
