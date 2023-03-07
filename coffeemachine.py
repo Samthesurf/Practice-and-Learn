@@ -38,7 +38,7 @@ def update_resources(coffee_type):
     global resources
     for ingredient, amount in coffee_type['ingredients'].items():
         if resources[ingredient] < amount:
-            print(f"Sorry, we don't have enough {ingredient}.")
+            print(f"Sorry, we don't have enough {ingredient}. 🙃")
             sys.exit()
         resources[ingredient] -= amount
     return resources
@@ -61,13 +61,13 @@ def user_choice(coffee, selection):
     if total >= coffee:
         profit += coffee
         if total == coffee:
-            print(f"Thank you for your purchase! Here's your {selection}")
+            print(f"Thank you for your purchase! Here's your {selection} 😃")
         else:
             change = round(total - coffee, 2)
-            print(f"Thank you for your purchase! Your change is ${change:.2f}")
+            print(f"Thank you for your purchase! Your change is ${change:.2f} 😄")
         return True
     else:
-        print("Sorry, you don't have enough money to buy this coffee.")
+        print("Sorry, you don't have enough money to buy this coffee. 😔")
         return False
 
 
