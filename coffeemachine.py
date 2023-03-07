@@ -44,7 +44,7 @@ def update_resources(coffee_type):
     return resources
 
 
-def user_choice(coffee):
+def user_choice(coffee, selection):
     '''This function allows the user to pay for the coffee and gives change accordingly'''
     global profit
     print('please insert coins')
@@ -61,7 +61,7 @@ def user_choice(coffee):
     if total >= coffee:
         profit += coffee
         if total == coffee:
-            print("Thank you for your purchase! Here's your coffee")
+            print(f"Thank you for your purchase! Here's your {selection}")
         else:
             change = round(total - coffee, 2)
             print(f"Thank you for your purchase! Your change is ${change:.2f}")
@@ -78,13 +78,13 @@ while True:
     coffee_choice = input("What would you like? (espresso/latte/cappuccino): ")
     if coffee_choice == 'espresso':
         update_resources(espresso)
-        user_choice(espresso['cost'])
+        user_choice(espresso['cost'], 'espresso')
     elif coffee_choice == 'cappuccino':
         update_resources(cappuccino)
-        user_choice(cappuccino['cost'])
+        user_choice(cappuccino['cost'], 'cappuccino')
     elif coffee_choice == 'latte':
         update_resources(latte)
-        user_choice(latte['cost'])
+        user_choice(latte['cost'], 'latte')
     elif coffee_choice == 'report':
         print(f'{resources} and a profit of ${profit}')
     elif coffee_choice == 'off':
