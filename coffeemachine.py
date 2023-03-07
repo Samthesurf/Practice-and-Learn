@@ -30,20 +30,23 @@ resources = {
     "milk": 200,
     "coffee": 100,
 }
+profit = 0
+
 
 def update_resources(coffee_type):
     '''This function updates the resources when each coffee is ordered'''
     global resources
     for ingredient, amount in coffee_type['ingredients'].items():
-        resources[ingredient] -= amount
         if resources[ingredient] < amount:
             print(f"Sorry, we don't have enough {ingredient}.")
             sys.exit()
-        return resources
+        resources[ingredient] -= amount
+    return resources
+
 
 def user_choice(coffee):
     '''This function allows the user to pay for the coffee and gives change accordingly'''
-    global resources
+    global profit
     print('please insert coins')
     coins = {
         'quarters': 0.25,
@@ -55,11 +58,13 @@ def user_choice(coffee):
     for coin, coin_value in coins.items():
         users_coins = input(f'how many {coin}?')
         total += coin_value * int(users_coins)
-        if coin == 'pennies':
-            break
     if total >= coffee:
-        change = round(total - coffee, 2)
-        print(f"Thank you for your purchase! Your change is ${change:.2f}")
+        profit += coffee
+        if total == coffee:
+            print("Thank you for your purchase! Here's your coffee")
+        else:
+            change = round(total - coffee, 2)
+            print(f"Thank you for your purchase! Your change is ${change:.2f}")
         return True
     else:
         print("Sorry, you don't have enough money to buy this coffee.")
@@ -81,9 +86,6 @@ while True:
         update_resources(latte)
         user_choice(latte['cost'])
     elif coffee_choice == 'report':
-        print(resources)
+        print(f'{resources} and a profit of ${profit}')
     elif coffee_choice == 'off':
         break
-
-        
-
