@@ -56,7 +56,7 @@ def user_choice(coffee, selection):
     }
     total = 0
     for coin, coin_value in coins.items():
-        users_coins = input(f'how many {coin}?')
+        users_coins = input(f'how many {coin}? ')
         total += coin_value * int(users_coins)
     if total >= coffee:
         profit += coffee
